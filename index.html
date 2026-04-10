@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon de la Rencontre Célibataire · Vannes · 6 juin 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bai+Jamjuree:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --violet: #9B59B6;
+    --fuchsia: #E91E8C;
+    --turquoise: #00BCD4;
+    --plum: #2d1a40;
+    --mauve-light: #ede0f5;
+    --mauve-mid: #d4b8e8;
+    --gold: #c9a84c;
+    --white: #fdfbff;
+    --text: #1a0f2e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Bai Jamjuree', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--plum) 0%, #4a1060 40%, #1a0f2e 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(233,30,140,0.15) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,188,212,0.1) 0%, transparent 70%);
+    bottom: -50px; left: -50px;
+    pointer-events: none;
+  }
+
+  .hero-label {
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--turquoise);
+    margin-bottom: 24px;
+    opacity: 0.9;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 300;
+    color: #fdfbff;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--fuchsia);
+  }
+
+  .hero-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 300;
+    color: var(--mauve-mid);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  .hero-lieu {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 2px;
+    margin-bottom: 48px;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, var(--fuchsia), var(--violet));
+    color: white;
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: opacity 0.3s, transform 0.3s;
+    margin-bottom: 16px;
+  }
+
+  .hero-cta:hover { opacity: 0.85; transform: translateY(-2px); }
+
+  .hero-cta-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    display: block;
+  }
+
+  /* SECTION CHAPEAU */
+  .chapeau {
+    background: var(--mauve-light);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .chapeau-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .chapeau h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 300;
+    color: var(--plum);
+    margin-bottom: 24px;
+    line-height: 1.3;
+  }
+
+  .chapeau h2 em { font-style: italic; color: var(--violet); }
+
+  .chapeau p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #3a2050;
+    margin-bottom: 16px;
+  }
+
+  /* PROGRAMME */
+  .programme {
+    padding: 80px 24px;
+    background: var(--white);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 300;
+    color: var(--plum);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .section-title em { font-style: italic; color: var(--fuchsia); }
+
+  .section-sub {
+    text-align: center;
+    font-size: 13px;
+    color: var(--violet);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 60px;
+  }
+
+  .grille {
+    max-width: 960px;
+    margin: 0 auto 60px;
+    overflow-x: auto;
+  }
+
+  .grille table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .grille th {
+    background: var(--plum);
+    color: var(--mauve-light);
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+
+  .grille th:first-child { text-align: left; }
+
+  .grille td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e8d8f5;
+    vertical-align: middle;
+    line-height: 1.4;
+  }
+
+  .grille td:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--plum);
+    white-space: nowrap;
+    min-width: 160px;
+  }
+
+  .grille td:not(:first-child) {
+    text-align: center;
+    color: #3a2050;
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  .grille tr:nth-child(even) td { background: #faf5ff; }
+
+  .tag-age {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-30 { background: #fce4f5; color: #a0006a; }
+  .tag-40 { background: #e8d5f5; color: #5a007a; }
+  .tag-50 { background: #d5e8f5; color: #005a7a; }
+  .tag-60 { background: #d5f5e8; color: #005a3a; }
+
+  /* TIMELINE SOIRÉE */
+  .timeline-block {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    align-items: flex-start;
+  }
+
+  .timeline-heure {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--violet);
+    min-width: 80px;
+    white-space: nowrap;
+    line-height: 1.2;
+  }
+
+  .timeline-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--plum);
+    margin-bottom: 6px;
+  }
+
+  .timeline-content p {
+    font-size: 14px;
+    font-weight: 300;
+    color: #4a3060;
+    line-height: 1.6;
+  }
+
+  .timeline-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--fuchsia);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  /* ATELIERS CARDS */
+  .ateliers {
+    background: var(--plum);
+    padding: 80px 24px;
+  }
+
+  .ateliers .section-title { color: var(--mauve-light); }
+  .ateliers .section-sub { color: var(--mauve-mid); }
+
+  .ateliers-grid {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .atelier-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 32px 28px;
+    transition: background 0.3s;
+  }
+
+  .atelier-card:hover { background: rgba(255,255,255,0.12); }
+
+  .atelier-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .atelier-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--mauve-light);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .atelier-card p {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(237,224,245,0.7);
+    line-height: 1.7;
+  }
+
+  /* EXPOSANTS */
+  .exposants {
+    padding: 80px 24px;
+    background: var(--mauve-light);
+  }
+
+  .exposants-grid {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+
+  .exposant-card {
+    background: white;
+    border: 1px solid var(--mauve-mid);
+    border-radius: 4px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .exposant-card:hover { border-color: var(--violet); transform: translateY(-3px); }
+
+  .exposant-numero {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--mauve-mid);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .exposant-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--plum);
+    margin-bottom: 4px;
+  }
+
+  .exposant-card p {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--violet);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* BLIND DATE */
+  .blind-date {
+    padding: 80px 24px;
+    background: white;
+  }
+
+  .blind-date-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .blind-date-inner p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #3a2050;
+    margin-bottom: 16px;
+  }
+
+  .mots-example {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 32px 0;
+  }
+
+  .mot-tag {
+    padding: 8px 20px;
+    border: 1px solid var(--violet);
+    border-radius: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--violet);
+  }
+
+  /* CTA INSCRIPTION */
+  .cta-section {
+    background: linear-gradient(135deg, var(--plum) 0%, #4a1060 100%);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    color: var(--mauve-light);
+    margin-bottom: 16px;
+  }
+
+  .cta-section h2 em { color: var(--fuchsia); font-style: italic; }
+
+  .cta-section p {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(237,224,245,0.7);
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 18px 48px;
+    background: linear-gradient(135deg, var(--fuchsia), var(--violet));
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 18px 48px;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--mauve-light);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.05); }
+
+  /* FOOTER */
+  footer {
+    background: #0f0820;
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    line-height: 2;
+    font-weight: 300;
+  }
+
+  footer strong { color: rgba(255,255,255,0.5); }
+
+  /* DIVIDER */
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--fuchsia), var(--violet));
+    margin: 0 auto 40px;
+  }
+
+  @media (max-width: 640px) {
+    .grille table { font-size: 12px; }
+    .grille td:first-child { font-size: 13px; min-width: 120px; }
+    .timeline-item { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-label">Lili Karantez® présente</p>
+  <h1>Salon de la<br><em>Rencontre Célibataire</em></h1>
+  <p class="hero-date">Samedi 6 juin 2026 · 10h &ndash; 23h</p>
+  <p class="hero-lieu">VANNES · BRETAGNE</p>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:16px">
+    <a href="#programme" class="hero-cta" style="background:linear-gradient(135deg,var(--fuchsia),var(--violet))">Découvrir le programme</a>
+  </div>
+  <span class="hero-cta-sub">Places limitées · Inscription obligatoire</span>
+</section>
+
+<!-- CHAPEAU -->
+<section class="chapeau">
+  <div class="chapeau-inner">
+    <h2>Une journée pensée pour<br><em>vous rencontrer vraiment</em></h2>
+    <div class="divider"></div>
+    <p>Participez à une journée entière construite autour de vous, de vos affinités, et de vos envies de vie. De 10h à 23h, il est prévu des ateliers par tranche d'âge, des rencontres thématiques, et une soirée cocktail pour finir en beauté sans oublier la présence de professionnels du bien-être relationnel.</p>
+    <p>Les Cœurs Solitaires vous accueille à Vannes pour cette première édition bretonne d'un Salon pensé différemment pour les célibataires hétéro.</p>
+  </div>
+</section>
+
+<!-- PROGRAMME GRILLE -->
+<section class="programme" id="programme">
+  <h2 class="section-title">Le <em>programme</em></h2>
+  <p class="section-sub">Journée complète · par tranche d'âge</p>
+
+  <div class="grille">
+    <table>
+      <thead>
+        <tr>
+          <th>Atelier</th>
+          <th>30 / 40 ans</th>
+          <th>40 / 50 ans</th>
+          <th>50 / 60 ans</th>
+          <th>60 / 70 ans et +</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Atelier Rencontres en groupe<br><small style="color:#9B59B6;font-weight:300">(1h30)</small></td>
+          <td><span class="tag-age tag-30">12h &gt; 13h30</span></td>
+          <td><span class="tag-age tag-40">13h30 &gt; 15h</span></td>
+          <td><span class="tag-age tag-50">15h &gt; 16h30</span></td>
+          <td><span class="tag-age tag-60">10h30 &gt; 12h</span></td>
+        </tr>
+        <tr>
+          <td>Atelier Enveloppe Magique<br><small style="color:#9B59B6;font-weight:300">(1h)</small></td>
+          <td><span class="tag-age tag-30">10h30</span></td>
+          <td><span class="tag-age tag-40">11h30</span></td>
+          <td><span class="tag-age tag-50">12h30</span></td>
+          <td><span class="tag-age tag-60">13h30</span></td>
+        </tr>
+        <tr>
+          <td>Rencontre Matching<br><small style="color:#9B59B6;font-weight:300">(1h30)</small></td>
+          <td><span class="tag-age tag-30">13h30 &gt; 15h</span></td>
+          <td><span class="tag-age tag-40">12h &gt; 13h30</span></td>
+          <td><span class="tag-age tag-50">10h30 &gt; 12h</span></td>
+          <td><span class="tag-age tag-60">15h &gt; 16h30</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TIMELINE SOIRÉE -->
+  <div class="timeline-block">
+    <div class="timeline-item">
+      <span class="timeline-heure">17h</span>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Les Rencontres Thématiques</h3>
+        <p>Par affinités, comme le matching de Lili Karantez : Randonnées, Danse, Voyages, Sports nautiques, Culture, Bien-Être, Art de vivre, Petits plaisirs simples, Musique. Vous choisissez votre table. Au fait, avez-vous rempli votre questionnaire ? Demandez-le à Lili Karantez.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-heure">18h</span>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Les Rencontres Libres</h3>
+        <p>Vous circulez, vous échangez, et vous continuez les conversations commencées dans la journée.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-heure">19h30</span>
+      <div class="timeline-dot" style="background:var(--gold)"></div>
+      <div class="timeline-content">
+        <h3>Soirée Cocktail</h3>
+        <p>La journée se prolonge par une soirée divertissante avec quelques surprises et surtout le pitch dating ! Quatorze hommes vont venir se présenter sur scène ! Avant de se quitter, un cocktail sera offert pour clôturer cette magnifique journée.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATELIERS DESCRIPTION -->
+<section class="ateliers">
+  <h2 class="section-title">Les <em>ateliers</em></h2>
+  <p class="section-sub">Ce qui vous attend dans la journée</p>
+  <div class="ateliers-grid">
+    <div class="atelier-card">
+      <span class="atelier-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40"><circle cx="20" cy="20" r="19" stroke="#E91E8C" stroke-width="1.2"/><path d="M12 15h16M12 20h10M12 25h13" stroke="#E91E8C" stroke-width="1.5" stroke-linecap="round"/><circle cx="28" cy="25" r="4" stroke="#9B59B6" stroke-width="1.2"/><path d="M31 28l3 3" stroke="#9B59B6" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      <h3>Atelier Rencontres en groupe</h3>
+      <p>Un espace pour se présenter, s'écouter, se découvrir sans la pression du face à face. Le tout dans une ambiance bienveillante et sans jugement.</p>
+    </div>
+    <div class="atelier-card">
+      <span class="atelier-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect x="7" y="10" width="26" height="20" rx="2" stroke="#E91E8C" stroke-width="1.2"/><path d="M7 14l13 9 13-9" stroke="#9B59B6" stroke-width="1.5" stroke-linecap="round"/><path d="M14 22l-7 8M26 22l7 8" stroke="#E91E8C" stroke-width="1" stroke-linecap="round" opacity="0.5"/></svg></span>
+      <h3>Atelier Enveloppe Magique</h3>
+      <p>Dans une enveloppe sera glissé un message et 5 photos de vous. Vous aurez le droit de tirer au sort deux enveloppes pour faire connaissance. La chance vous sourit.</p><p style="margin-top:10px;font-size:12px;opacity:0.7">Les photos sont à envoyer impérativement avant le 20 avril à : Lili Karantez · Centre des Affaires Lorient La Base · 1 rue Étienne d'Orves · 56100 Lorient</p>
+    </div>
+    <div class="atelier-card">
+      <span class="atelier-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40"><path d="M20 8c-6.627 0-12 5.373-12 12 0 2.21.597 4.28 1.638 6.063L8 32l6.063-1.638A11.954 11.954 0 0020 32c6.627 0 12-5.373 12-12S26.627 8 20 8z" stroke="#E91E8C" stroke-width="1.2"/><path d="M15 20c0-2.761 2.239-5 5-5s5 2.239 5 5-2.239 5-5 5" stroke="#9B59B6" stroke-width="1.2" stroke-linecap="round"/><circle cx="20" cy="20" r="1.5" fill="#E91E8C"/></svg></span>
+      <h3>Rencontre Matching</h3>
+      <p>Sur la base de votre questionnaire, des rencontres ciblées vous seront proposées. Vous ne savez pas à l'avance qui vous attend. Vous le découvrez le jour J.</p>
+    </div>
+    <div class="atelier-card">
+      <span class="atelier-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40"><path d="M10 8h20v24H10z" stroke="#E91E8C" stroke-width="1.2"/><path d="M14 8v24" stroke="#9B59B6" stroke-width="1" opacity="0.5"/><path d="M14 14h12M14 18h12M14 22h8" stroke="#E91E8C" stroke-width="1.2" stroke-linecap="round"/><path d="M24 26l2 2 4-4" stroke="#9B59B6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <h3>Blind Date Littéraire</h3>
+      <p>Trois mots choisis librement à l'inscription seront inscrits sur votre badge. Certainement qu'une personne sera attirée par ces mots !</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPOSANTS -->
+<section class="exposants">
+  <h2 class="section-title">Les <em>exposants</em></h2>
+  <p class="section-sub">Thérapeutes · Coachs · Agences · Partenaires</p>
+  <div class="exposants-grid">
+    <div class="exposant-card">
+      <span class="exposant-numero">01</span>
+      <h4>Alexandra Thiébault</h4>
+      <p style="font-size:10px;line-height:1.6;margin-top:8px;color:#4a3060;font-weight:300">Praticienne en réflexologie, shiatsu et massage intuitif, Alexandra accompagne la transformation de la vie relationnelle en passant par le corps. Elle aide à relâcher les mémoires enfouies pour retrouver sécurité intérieure, confiance et ouverture vers des relations plus apaisées.</p>
+    </div>
+    <div class="exposant-card">
+      <span class="exposant-numero">02</span>
+      <h4>Sophie Kama-Coach</h4>
+      <p style="font-size:10px;line-height:1.6;margin-top:8px;color:#4a3060;font-weight:300">Massages Tao-Tantra pour une détente profonde et une connaissance de soi par le corps. Coaching sexo et conseil conjugal pour une communication harmonieuse et constructive dans la relation.</p>
+    </div>
+    <div class="exposant-card">
+      <span class="exposant-numero">03</span>
+      <h4>Sophie Le Roy Ribes</h4>
+      <p style="font-size:10px;line-height:1.6;margin-top:8px;color:#4a3060;font-weight:300">Praticienne en hypnose ericksonienne, PNL, DNR et analyse transactionnelle depuis plus de dix ans, installée à Vannes et Lorient. Elle libère les schémas, mémoires et liens toxiques pour retrouver confiance et présence authentique dans la rencontre.</p>
+    </div>
+    <div class="exposant-card">
+      <span class="exposant-numero">04</span>
+      <h4>Stéphanie Mariani</h4>
+      <p style="font-size:10px;line-height:1.6;margin-top:8px;color:#4a3060;font-weight:300">Soins énergétiques : massage, Reiki Usui, Chamanisme, Magnétisme et Bols Tibétains.</p>
+    </div>
+    <div class="exposant-card">
+      <span class="exposant-numero">05</span>
+      <h4>Arthur Achejian</h4>
+      <p>Love Coach &amp; Auteur</p>
+      <p style="font-size:10px;margin-top:6px;color:#9B59B6;font-weight:300">Informations à venir</p>
+    </div>
+    <div class="exposant-card">
+      <span class="exposant-numero">06</span>
+      <h4>Informations à venir</h4>
+      <p>&nbsp;</p>
+    </div>
+    <div class="exposant-card">
+      <span class="exposant-numero">07</span>
+      <h4>Informations à venir</h4>
+      <p>&nbsp;</p>
+    </div>
+    <div class="exposant-card">
+      <span class="exposant-numero">08</span>
+      <h4>Informations à venir</h4>
+      <p>&nbsp;</p>
+    </div>
+    <div class="exposant-card">
+      <span class="exposant-numero">09</span>
+      <h4>Informations à venir</h4>
+      <p>&nbsp;</p>
+    </div>
+    <div class="exposant-card">
+      <span class="exposant-numero">10</span>
+      <h4>Informations à venir</h4>
+      <p>&nbsp;</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA INSCRIPTION -->
+<section class="cta-section">
+  <h2>Prêt(e) à <em>oser</em> la rencontre ?</h2>
+  <p>L'inscription inclut la journée complète, tous les ateliers et la soirée cocktail.<br>Les places sont limitées. Votre tranche d'âge est garantie dès votre inscription.</p>
+  <div class="cta-buttons">
+    <a href="https://ypl.me/PUR" target="_blank" class="btn-primary">S'inscrire au Salon</a>
+  </div>
+  <p style="margin-top:24px;font-size:13px;color:rgba(237,224,245,0.6);font-weight:300">Paiement en deux fois possible. Écrivez à Lili Karantez : lilikarantez@gmail.com</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong>Lili Karantez®</strong> · Les Cœurs Solitaires<br>
+    Centre des Affaires Lorient La Base · 1 rue Étienne d'Orves · 56100 Lorient<br>
+    lilikarantez@gmail.com · SIRET 40149331700069<br>
+    © 2026 Lili Karantez — Toute reproduction interdite, même partielle.<br>
+    <small>Vos données nous sont confiées. Elles ne seront jamais vendues, jamais partagées.</small>
+  </p>
+</footer>
+
+
+<!-- BULLE WHATSAPP -->
+<style>
+  .wa-bubble {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    width: 60px; height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    cursor: pointer;
+    z-index: 9999;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+  }
+  .wa-bubble:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+  }
+  .wa-bubble svg { width: 30px; height: 30px; fill: white; }
+  .wa-tooltip {
+    position: fixed;
+    bottom: 98px; right: 24px;
+    background: white;
+    color: #1a0f2e;
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 10px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 9998;
+  }
+  .wa-bubble:hover + .wa-tooltip, .wa-tooltip:hover { opacity: 1; }
+</style>
+<a class="wa-bubble" href="https://wa.me/33633054456" target="_blank" aria-label="Contacter Lili sur WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.5L4 29l7.697-1.804A11.93 11.93 0 0016 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.93 9.93 0 01-5.02-1.352l-.36-.215-4.57 1.072 1.1-4.452-.234-.373A9.955 9.955 0 016 15c0-5.523 4.477-10 10-10zm-3.4 5.5c-.2 0-.52.075-.795.375-.275.3-1.05 1.025-1.05 2.5s1.075 2.9 1.225 3.1c.15.2 2.075 3.175 5.075 4.325 2.5.975 3.025.775 3.575.725.55-.05 1.775-.725 2.025-1.425.25-.7.25-1.3.175-1.425-.075-.125-.275-.2-.575-.35-.3-.15-1.775-.875-2.05-.975-.275-.1-.475-.15-.675.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-.3-.15-1.262-.465-2.4-1.48-.888-.79-1.487-1.765-1.662-2.065-.175-.3-.018-.462.13-.61.134-.133.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.663-1.625-.913-2.225-.24-.588-.487-.508-.675-.517l-.575-.01z"/></svg>
+</a>
+<div class="wa-tooltip">Une question ? Écrivez à Lili !</div>
+
+</body>
+</html>
